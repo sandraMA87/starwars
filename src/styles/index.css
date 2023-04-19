@@ -1,6 +1,51 @@
 /* 
     General Styles
 */
-body {
-    background-color: rgb(35, 35, 35);
+
+
+
+.card-body {
+    background-color: rgb(251, 202, 124);
+    
+    
 }
+.card-title {
+    font-size: 1.2rem;
+}
+
+.card-text {
+    text-align: left;
+    font-weight: bold;
+}
+
+
+.overflow-x-scroll {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Oculta la barra de scroll por defecto */
+    padding-bottom: 10px; /* Agrega un espacio inferior para la barra de scroll */
+  }
+  
+  .overflow-x-scroll::-webkit-scrollbar {
+    display: none; /* Oculta la barra de scroll por defecto en WebKit */
+  }
+
+  .btn-1 {
+    margin-right: 32px;
+    margin-left: 1px;
+    text-align: left;
+    color: white;
+    padding: 6px;
+    border-radius: 10px;
+  }
+  .btn-2 {
+    border:none;
+    background-color:rgb(251, 202, 124) ;
+    color: white;
+  }
+
+  .btn-2 i:hover {
+    color: #e92525; /* cambiar el color del corazón a rosa cuando se pasa el cursor sobre él */
+  }

@@ -1,22 +1,28 @@
 /* 
     General Styles
 */
-
-
+body {
+  background-image: radial-gradient(circle at 51.77% 50%, #a46cdf 0, #60479f 25%, #1f1f59 50%, #00001b 75%, #000000 100%);
+}
 
 .card-body {
     background-color: rgb(251, 202, 124);
     
     
 }
+.card-wrapper {
+  box-shadow: 2px 5px 10px 15px rgba(0, 0, 0, 0.2);
+}
 .card-title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .card-text {
     text-align: left;
     font-weight: bold;
 }
+
+
 
 
 .overflow-x-scroll {
@@ -29,7 +35,7 @@
   }
   
   .overflow-x-scroll::-webkit-scrollbar {
-    display: none; /* Oculta la barra de scroll por defecto en WebKit */
+    /* display: none; Oculta la barra de scroll por defecto en WebKit */
   }
 
   .btn-1 {

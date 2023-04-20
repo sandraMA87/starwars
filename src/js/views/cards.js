@@ -61,7 +61,9 @@ export const Cards = () => {
 							<p className="card-text">Gender : {element?.gender}</p>
 							<p className="card-text">Hair Color : {element?.hair_color}</p>
 							<p className="card-text">Eye color : {element?.eye_color}</p>
+							<Link to={`/character${element.id}`}>
 							<button className="btn-1 bg-primary">Learn more</button>
+							</Link>
 							<button className="btn-2 "><i className="fas fa-heart"></i></button>
 					   </div>
 					</div>

@@ -9,7 +9,9 @@ export const Cards = () => {
   const [species, setSpecies] = useState ([]);
   
   
-  useEffect(() => {
+//   UseEffect con fetch para todas las variables de estado de: CHARACTERS, PLANETS, SPECIES
+ 
+useEffect(() => {
   let getAllCharacters = {
 	method: "GET",
 	redirect: "follow"
@@ -45,7 +47,8 @@ export const Cards = () => {
 
 }, [])
 
-  
+//   Las CARDS de CHARACTERS, PLANETS y SPECIES
+
  return (
     <>
 	<div className="relative flex items-center">
@@ -86,9 +89,9 @@ export const Cards = () => {
 								<h3 className="card-title fw-bold">{element?.name}</h3>
 								<p className="card-text">Population: {element?.population}</p>
 								<p className="card-text">Terrain: {element?.terrain}</p>
-								
+								<Link to={`/planet${element.id}`}>
 								<button className="btn-1 bg-primary">Learn more</button>
-								
+								</Link>
 							    <button className="btn-2 "><i className="fas fa-heart"></i></button>
 						   </div>
 						</div>
@@ -111,7 +114,9 @@ export const Cards = () => {
 								<h3 className="card-title fw-bold">{element?.name}</h3>
 								<p className="card-text">Eye color: {element?.eye_color}</p>
 								<p className="card-text">Language: {element?.language}</p>
+								<Link to={`/specie${element.id}`}>
 								<button className="btn-1 bg-primary">Learn more</button>
+								</Link>
 							    <button className="btn-2 "><i className="fas fa-heart"></i></button>
 						   </div>
 						</div>

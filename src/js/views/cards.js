@@ -6,7 +6,7 @@ import { Context } from "../store/appContext";
 export const Cards = () => {
   const [character, setCharacter] = useState([]);
   const [planet, setPlanet] = useState ([]);
-  const [species, setSpecies] = useState ([]);
+  const [vehicles, setVehicles] = useState ([]);
   
   
 //   UseEffect con fetch para todas las variables de estado de: CHARACTERS, PLANETS, SPECIES
@@ -18,7 +18,9 @@ useEffect(() => {
   }
     fetch("https://www.swapi.tech/api/people/", getAllCharacters)
 	.then((respuesta) => {respuesta.json()
-    .then((results) => {setCharacter(results)})
+    .then((results) => {
+		console.log(results)
+		setCharacter(results)})
     }).catch(error => {
 		console.log(error, "este es el error");
   })
@@ -34,20 +36,22 @@ useEffect(() => {
 		console.log(error, "este es el error");
   })
 
-  let getAllSpecies = {
+  let getAllVehicles = {
 	method: "GET",
 	redirect: "follow"
   }
-    fetch("https://www.swapi.tech/api/species/", getAllSpecies)
+    fetch("https://www.swapi.tech/api/vehicles/", getAllVehicles)
 	.then((respuesta) => {respuesta.json()
-    .then((data) => {setSpecies(data.results)})
+    .then((data) => {setVehicles(data.results)})
     }).catch(error => {
 		console.log(error, "este es el error");
   })
 
+
+
 }, [])
 
-//   Las CARDS de CHARACTERS, PLANETS y SPECIES
+//   Las CARDS de CHARACTERS, PLANETS 
 
  return (
     <>
@@ -59,13 +63,12 @@ useEffect(() => {
 					<>
 					<div key={key} className="card-wrapper flex m-5">
 						<img src={"https://starwars-visualguide.com/assets/img/characters/"+(key+1)+".jpg"} style={{width: '200px'}} alt='/' />
-						<div className="card-body">
-							<h3 className="card-title fw-bold">{element?.name}</h3>
-							<p className="card-text">Gender : {element?.gender}</p>
-							<p className="card-text">Hair Color : {element?.hair_color}</p>
-							<p className="card-text">Eye color : {element?.eye_color}</p>
-							<Link to={`/character${element.id}`}>
-							<button className="btn-1 bg-primary">Learn more</button>
+						<div className="card-body-cards">
+							<h2 className="card-title fw-bold">{element?.name}</h2>
+							<p className="card-text">Gender: {element?.gender}</p>
+							<p className="card-text">Hair Color: {element?.hair_color}</p>
+							<Link to={`/character/${element.uid}`}>
+							<button className="btn-1">Learn more</button>
 							</Link>
 							<button className="btn-2 "><i className="fas fa-heart"></i></button>
 					   </div>
@@ -85,16 +88,17 @@ useEffect(() => {
 						<>
 						<div key={key} className="card-wrapper flex m-5">
 							<img src={"https://starwars-visualguide.com/assets/img/planets/"+(key+1)+".jpg"} style={{width: '200px'}} alt='/' />
-							<div className="card-body text-wrap" style= {{ height: '180px'}} >
+							<div className="card-body-cards text-wrap" style= {{ height: '180px'}} >
 								<h3 className="card-title fw-bold">{element?.name}</h3>
 								<p className="card-text">Population: {element?.population}</p>
 								<p className="card-text">Terrain: {element?.terrain}</p>
-								<Link to={`/planet${element.id}`}>
-								<button className="btn-1 bg-primary">Learn more</button>
+								<Link to={`/planet/${element.uid}`}>
+								<button className="btn-1">Learn more</button>
 								</Link>
 							    <button className="btn-2 "><i className="fas fa-heart"></i></button>
 						   </div>
-						</div>
+						 </div>
+						
 					</>
 					)
 				})}
@@ -105,27 +109,30 @@ useEffect(() => {
 	<div className="realtive flex items-center">
 		<div className="overflow-x-auto" style={{ maxWidth: '100vw' }}>
 			<div className="overflow-x-scroll whitespace-nowrap flex flex-row">
-				{species?.map((element, key) => {
+				{vehicles?.map((element, key) => {
 					return (
 						<>
 						<div key={key} className="card-wrapper flex m-5">
-							<img src={"https://starwars-visualguide.com/assets/img/species/"+(key+1)+".jpg"} style={{width: '200px'}} alt='/' />
-							<div className="card-body text-wrap" style= {{ height: '180px'}} >
+							<img src={"https://starwars-visualguide.com/assets/img/vehicles/"+(key+1)+".jpg"} style={{width: '200px'}} alt='/' />
+							<div className="card-body-cards text-wrap" style= {{ height: '180px'}} >
 								<h3 className="card-title fw-bold">{element?.name}</h3>
-								<p className="card-text">Eye color: {element?.eye_color}</p>
-								<p className="card-text">Language: {element?.language}</p>
-								<Link to={`/specie${element.id}`}>
-								<button className="btn-1 bg-primary">Learn more</button>
+								<p className="card-text">Population: {element?.population}</p>
+								<p className="card-text">Terrain: {element?.terrain}</p>
+								<Link to={`/vehicles/${element.uid}`}>
+								<button className="btn-1">Learn more</button>
 								</Link>
 							    <button className="btn-2 "><i className="fas fa-heart"></i></button>
 						   </div>
-						</div>
+						 </div>
+						
 					</>
 					)
 				})}
 			</div>
 		</div>
 	</div>
+
+	
 	
 	</>
   );

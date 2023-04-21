@@ -1,28 +1,33 @@
 /* 
     General Styles
 */
+
+
 body {
   background-image: radial-gradient(circle at 51.77% 50%, #a46cdf 0, #60479f 25%, #1f1f59 50%, #00001b 75%, #000000 100%);
 }
 
-.card-body {
-    background-color: rgb(251, 202, 124);
-    
-    
+.card-title {
+  color: rgb(0, 0, 0);
+  font-size: 1.1rem;
 }
+
+.card-body-cards {
+  background-color: rgb(251, 183, 10);
+  padding: 20px;
+}
+
+
 .card-wrapper {
   box-shadow: 2px 5px 10px 15px rgba(0, 0, 0, 0.2);
 }
-.card-title {
-    font-size: 1.1rem;
-}
+
 
 .card-text {
     text-align: left;
     font-weight: bold;
+    color: rgb(0, 0, 0);
 }
-
-
 
 
 .overflow-x-scroll {
@@ -46,12 +51,19 @@ body {
     padding: 6px;
     border-radius: 10px;
   }
+
+  .btn-1{
+    background-color:rgb(95, 6, 212);
+  }
+  
   .btn-2 {
     border:none;
-    background-color:rgb(251, 202, 124) ;
+    background-color:rgb(251, 183, 10) ;
     color: white;
   }
 
   .btn-2 i:hover {
     color: #e92525; /* cambiar el color del corazón a rosa cuando se pasa el cursor sobre él */
   }
+
+  

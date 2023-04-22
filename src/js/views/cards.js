@@ -42,7 +42,9 @@ useEffect(() => {
   }
     fetch("https://www.swapi.tech/api/vehicles/", getAllVehicles)
 	.then((respuesta) => {respuesta.json()
-    .then((data) => {setVehicles(data.results)})
+    .then((data) => {
+		console.log(data.results)
+		setVehicles(data.results)})
     }).catch(error => {
 		console.log(error, "este es el error");
   })
@@ -64,13 +66,13 @@ useEffect(() => {
 					<div key={key} className="card-wrapper flex m-5">
 						<img src={"https://starwars-visualguide.com/assets/img/characters/"+(key+1)+".jpg"} style={{width: '200px'}} alt='/' />
 						<div className="card-body-cards">
-							<h2 className="card-title fw-bold">{element?.name}</h2>
-							<p className="card-text">Gender: {element?.gender}</p>
-							<p className="card-text">Hair Color: {element?.hair_color}</p>
+							<h2 className="card-title fw-bold">{element.name}</h2>
+							<p className="card-text">Gender: {character.gender}</p>
+							<p className="card-text">Hair Color: {character.hair_color}</p>
 							<Link to={`/character/${element.uid}`}>
-							<button className="btn-1">Learn more</button>
+							<button type="button" className="btn-1">Learn more</button>
 							</Link>
-							<button className="btn-2 "><i className="fas fa-heart"></i></button>
+							<button type="button" className="btn-2 "><i className="fas fa-heart"></i></button>
 					   </div>
 					</div>
 					</>
@@ -87,11 +89,12 @@ useEffect(() => {
 					return (
 						<>
 						<div key={key} className="card-wrapper flex m-5">
-							<img src={"https://starwars-visualguide.com/assets/img/planets/"+(key+1)+".jpg"} style={{width: '200px'}} alt='/' />
+
+							<img src={"https://starwars-visualguide.com/assets/img/planets/"+(key+1)+".jpg"} onError={(e) => e.target.src = 'https://st4.depositphotos.com/1050267/24937/i/600/depositphotos_249378462-stock-photo-jupiter-planet-isolated-on-black.jpg'} style={{width: '200px'}} alt='/' />
 							<div className="card-body-cards text-wrap" style= {{ height: '180px'}} >
-								<h3 className="card-title fw-bold">{element?.name}</h3>
-								<p className="card-text">Population: {element?.population}</p>
-								<p className="card-text">Terrain: {element?.terrain}</p>
+								<h3 className="card-title fw-bold">{element.name}</h3>
+								<p className="card-text">Population: {element.population}</p>
+								<p className="card-text">Terrain: {element.terrain}</p>
 								<Link to={`/planet/${element.uid}`}>
 								<button className="btn-1">Learn more</button>
 								</Link>
@@ -113,11 +116,11 @@ useEffect(() => {
 					return (
 						<>
 						<div key={key} className="card-wrapper flex m-5">
-							<img src={"https://starwars-visualguide.com/assets/img/vehicles/"+(key+1)+".jpg"} style={{width: '200px'}} alt='/' />
+							<img src={"https://starwars-visualguide.com/assets/img/vehicles/"+(element.uid)+".jpg"} onError={(e) => e.target.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScsk5tHkHmjiarYTjPDrBYoFcHJbHmSdT28Iw_sW1buw&s'} style={{width: '200px', height:'200px'}}  alt='/' />
 							<div className="card-body-cards text-wrap" style= {{ height: '180px'}} >
-								<h3 className="card-title fw-bold">{element?.name}</h3>
-								<p className="card-text">Population: {element?.population}</p>
-								<p className="card-text">Terrain: {element?.terrain}</p>
+								<h3 className="card-title fw-bold">{element.name}</h3>
+								<p className="card-text">Model: {element.model}</p>
+								<p className="card-text">Length: {element.length}</p>
 								<Link to={`/vehicles/${element.uid}`}>
 								<button className="btn-1">Learn more</button>
 								</Link>

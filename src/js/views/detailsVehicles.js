@@ -25,7 +25,7 @@ export const VehicleDetails = () => {
         <div className="container row container-details">
             {vehicle && (
         <>
-         <div className="card mb-4 bg-dark">
+         <div className="card mb-4 bg-warning">
            <div className="row g-0">
             <div className="col-md-4">
                 <img src={`https://starwars-visualguide.com/assets/img/vehicles/${params.id}.jpg`} style={{width: '300px'}} className="img fluid rounded-start" alt="..." />

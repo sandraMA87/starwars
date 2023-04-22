@@ -25,10 +25,10 @@ export const PlanetDetails = () => {
         <div className="container row container-details">
             {planet && (
         <>
-         <div className="card mb-4 bg-dark">
+         <div className="card mb-4 bg-warning">
            <div className="row g-0">
             <div className="col-md-4">
-                <img src={`https://starwars-visualguide.com/assets/img/planets/${params.id}.jpg`} style={{width: '300px'}} className="img fluid rounded-start" alt="..." />
+                <img src={`https://starwars-visualguide.com/assets/img/planets/${params.id}.jpg`} onError={(e) => e.target.src = 'https://st4.depositphotos.com/1050267/24937/i/600/depositphotos_249378462-stock-photo-jupiter-planet-isolated-on-black.jpg'} style={{width: '300px'}} className="img fluid rounded-start" alt="..." />
             </div>
             <div className="card-body col-md-8 text-center">
                 

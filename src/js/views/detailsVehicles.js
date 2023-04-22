@@ -23,7 +23,7 @@ export const VehicleDetails = () => {
 
     return (
         <div className="container row container-details">
-            {planet && (
+            {vehicle && (
         <>
          <div className="card mb-4 bg-dark">
            <div className="row g-0">
@@ -60,20 +60,20 @@ export const VehicleDetails = () => {
               )}
             </div>    
             <div className="col-md-2">
-                <strong>Population</strong>
-                <p>{planet.population}</p>
+                <strong>Model</strong>
+                <p>{vehicle.model}</p>
             </div>   
             <div className="col-md-2">
-                <strong>Orbital Period</strong>
-                <p>{planet.orbital_period}</p>
+                <strong>Consumables</strong>
+                <p>{vehicle.consumables}</p>
             </div>   
             <div className="col-md-2">
-                <strong>Rotation Period</strong>
-                <p>{planet.rotation_period}</p>
+                <strong>Length</strong>
+                <p>{vehicle.length}</p>
             </div>   
             <div className="col-md-2">
-                <strong>Diameter</strong>
-                <p>{planet.diameter}</p>
+                <strong>Passengers</strong>
+                <p>{vehicle.passengers}</p>
             </div>   
         </div>
         

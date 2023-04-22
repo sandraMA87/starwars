@@ -8,7 +8,7 @@ export const Cards = () => {
   const [planet, setPlanet] = useState ([]);
   const [vehicles, setVehicles] = useState ([]);
   
-  
+
 //   UseEffect con fetch para todas las variables de estado de: CHARACTERS, PLANETS, SPECIES
  
 useEffect(() => {
@@ -18,12 +18,13 @@ useEffect(() => {
   }
     fetch("https://www.swapi.tech/api/people/", getAllCharacters)
 	.then((respuesta) => {respuesta.json()
-    .then((results) => {
-		console.log(results)
-		setCharacter(results)})
+    .then((results) => {setCharacter(results)})
     }).catch(error => {
 		console.log(error, "este es el error");
   })
+
+
+
 
   let getAllPlanets = {
 	method: "GET",
@@ -55,12 +56,20 @@ useEffect(() => {
 
 //   Las CARDS de CHARACTERS, PLANETS 
 
+const handleAddFavoritos = (uid, name) => {
+
+  console.log("click corazon", name)
+
+}
+
+
  return (
     <>
 	<div className="relative flex items-center">
 		<div className="overflow-x-auto" style={{ maxWidth: '100vw' }}>
 		<div className="overflow-x-scroll whitespace-nowrap flex flex-row">
 			{character?.results?.map((element, key) =>{
+				
 				return (
 					<>
 					<div key={key} className="card-wrapper flex m-5">
@@ -72,7 +81,7 @@ useEffect(() => {
 							<Link to={`/character/${element.uid}`}>
 							<button type="button" className="btn-1">Learn more</button>
 							</Link>
-							<button type="button" className="btn-2 "><i className="fas fa-heart"></i></button>
+							<button type="button" onClick={()=>handleAddFavoritos(element.uid, element.name)} className="btn-2 "><i className="fas fa-heart"></i></button>
 					   </div>
 					</div>
 					</>

@@ -7,7 +7,7 @@ export const Cards = () => {
   const [character, setCharacter] = useState([]);
   const [planet, setPlanet] = useState ([]);
   const [vehicles, setVehicles] = useState ([]);
-  
+  const {store, actions} = useContext(Context);
 
 //   UseEffect con fetch para todas las variables de estado de: CHARACTERS, PLANETS, SPECIES
  
@@ -24,9 +24,7 @@ useEffect(() => {
   })
 
 
-
-
-  let getAllPlanets = {
+let getAllPlanets = {
 	method: "GET",
 	redirect: "follow"
   }
@@ -57,8 +55,7 @@ useEffect(() => {
 //   Las CARDS de CHARACTERS, PLANETS 
 
 const handleAddFavoritos = (uid, name) => {
-
-  console.log("click corazon", name)
+	actions.addFavorito(uid, name) 
 
 }
 

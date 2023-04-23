@@ -1,44 +1,49 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
+	const {store, actions} = useContext(Context);
+	
+	const handleDelFav = (uid, name) => {
+		actions.borrarFavorito(uid, name);
+	  };
+	
 	return (
 	  <nav className="navbar navbar-light bg-black mb-3 p-1">
 		<Link to="/">
 		  <span className="navbar-brand mb-0 h1">
 			<img
 			  src="https://brandemia.org/contenido/subidas/2021/05/portada-starwars-imagenes-brandemia-blog-1000x670.jpg"
-			  class="img-responsive w-25 p-0 ms-5"
+			  className="img-responsive w-25 p-0 ms-5"
 			></img>
 		  </span>
 		</Link>
 		<div className="ml-auto">
-		  <div class="dropdown me-5">
+		  <div className="dropdown me-5">
 			<button
-			  class="btn btn-dark dropdown-toggle"
+			  className="btn btn-dark dropdown-toggle"
 			  type="button"
 			  data-bs-toggle="dropdown"
 			  aria-expanded="false"
 			>
-			  Mis Favoritos
+			  Mis Favoritos ({store.characters.length})
 			</button>
-			<ul class="dropdown-menu">
-			  <li>
-				<a class="dropdown-item" href="#">
-				  Action
+			<ul className="dropdown-menu">
+               {store.characters.map((item, index) => (
+				<li>
+				<a className="dropdown-item" href="#">
+				 {item.name}<span className="">
+                      <i
+                        className="fa-solid fa-delete-left"
+                        style={{ marginLeft: "5px" }}
+                        onClick={() => handleDelFav(item.uid, item.name)}
+                      />
+                    </span>
 				</a>
 			  </li>
-			  <li>
-				<a class="dropdown-item" href="#">
-				  Another action
-				</a>
-			  </li>
-			  <li>
-				<a class="dropdown-item" href="#">
-				  Something else here
-				</a>
-			  </li>
-			</ul>
+			   ))}
+			 </ul>
 		  </div>
 		</div>
 	  </nav>

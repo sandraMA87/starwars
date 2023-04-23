@@ -9,7 +9,7 @@ export const Cards = () => {
   const [vehicles, setVehicles] = useState ([]);
   const {store, actions} = useContext(Context);
 
-//   UseEffect con fetch para todas las variables de estado de: CHARACTERS, PLANETS, SPECIES
+//   UseEffect con el fetch de todas las variables de estado tanto de: CHARACTERS, PLANETS, SPECIES
  
 useEffect(() => {
   let getAllCharacters = {
@@ -47,18 +47,19 @@ let getAllPlanets = {
     }).catch(error => {
 		console.log(error, "este es el error");
   })
-
-
-
 }, [])
 
-//   Las CARDS de CHARACTERS, PLANETS 
+
+
+// LA FUNCION DE FAVORITOS 
 
 const handleAddFavoritos = (uid, name) => {
 	actions.addFavorito(uid, name) 
-
 }
 
+
+
+// CARDS DE CHARACTERS, PLANETS Y VEHICLES
 
  return (
     <>
@@ -78,7 +79,7 @@ const handleAddFavoritos = (uid, name) => {
 							<Link to={`/character/${element.uid}`}>
 							<button type="button" className="btn-1">Learn more</button>
 							</Link>
-							<button type="button" onClick={()=>handleAddFavoritos(element.uid, element.name)} className="btn-2 "><i className="fas fa-heart"></i></button>
+							<button type="button" onClick={()=>handleAddFavoritos(element.uid, element.name)} className="btn-2"><i className="fas fa-heart"></i></button>
 					   </div>
 					</div>
 					</>
@@ -102,9 +103,9 @@ const handleAddFavoritos = (uid, name) => {
 								<p className="card-text">Population: {element.population}</p>
 								<p className="card-text">Terrain: {element.terrain}</p>
 								<Link to={`/planet/${element.uid}`}>
-								<button className="btn-1">Learn more</button>
+								<button type="button" className="btn-1">Learn more</button>
 								</Link>
-							    <button className="btn-2 "><i className="fas fa-heart"></i></button>
+							    <button type="button" onClick={()=>handleAddFavoritos(element.uid, element.name)} className="btn-2 "><i className="fas fa-heart"></i></button>
 						   </div>
 						 </div>
 						
@@ -128,9 +129,9 @@ const handleAddFavoritos = (uid, name) => {
 								<p className="card-text">Model: {element.model}</p>
 								<p className="card-text">Length: {element.length}</p>
 								<Link to={`/vehicles/${element.uid}`}>
-								<button className="btn-1">Learn more</button>
+								<button type="button" className="btn-1">Learn more</button>
 								</Link>
-							    <button className="btn-2 "><i className="fas fa-heart"></i></button>
+							    <button type="button" onClick={()=>handleAddFavoritos(element.uid, element.name)} className="btn-2 "><i className="fas fa-heart"></i></button>
 						   </div>
 						 </div>
 						

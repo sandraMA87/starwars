@@ -32,14 +32,15 @@ export const Navbar = () => {
 			<ul className="dropdown-menu">
                {store.characters.map((item, index) => (
 				<li>
-				<a className="dropdown-item" href="#">
-				 {item.name}<span className="">
-                      <i
-                        className="fa-solid fa-delete-left"
-                        style={{ marginLeft: "5px" }}
+				<a className="dropdown-item text-danger" href="#">
+				 {item.name}
+                      <button 
+					    className="btn btn-link mx-2 text-danger"
+                        style={{ marginLeft: "5px", textDecoration: "none"}}
                         onClick={() => handleDelFav(item.uid, item.name)}
-                      />
-                    </span>
+                      >
+						&#x1f525;
+                    </button>
 				</a>
 			  </li>
 			   ))}

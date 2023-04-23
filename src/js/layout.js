@@ -8,9 +8,11 @@ import { Cards } from "./views/cards";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
+
 import { CharacterDetails } from "./views/detailsChracters";
 import { PlanetDetails } from "./views/detailsPlanets";
 import { VehicleDetails } from "./views/detailsVehicles";
+import { Footer } from "./component/footer";
 
 
 //create your first component
@@ -35,7 +37,7 @@ const Layout = () => {
 						<Route path="/vehicles/:id" element={<VehicleDetails />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
-					
+					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>

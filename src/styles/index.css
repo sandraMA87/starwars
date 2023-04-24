@@ -66,4 +66,7 @@ body {
     color: #e92525; /* cambiar el color del corazón a rosa cuando se pasa el cursor sobre él */
   }
 
-  
+  .footer-container {
+    background-color: black;
+    padding: 0;
+  }

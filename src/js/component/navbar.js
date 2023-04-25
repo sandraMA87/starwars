@@ -10,7 +10,7 @@ export const Navbar = () => {
 	  };
 	
 	return (
-	  <nav className="navbar navbar-light bg-black mb-3 p-1">
+	  <nav className="navbar navbar-light bg-black mb-4 p-1">
 		<Link to="/">
 		  <span className="navbar-brand mb-0 h1">
 			<img

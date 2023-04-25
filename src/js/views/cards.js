@@ -26,7 +26,9 @@ export const Cards = () => {
         console.log(error, "este es el error");
       });
 
-    let getAllPlanets = {
+    
+    
+      let getAllPlanets = {
       method: "GET",
       redirect: "follow",
     };
@@ -40,7 +42,9 @@ export const Cards = () => {
         console.log(error, "este es el error");
       });
 
-    let getAllVehicles = {
+   
+   
+      let getAllVehicles = {
       method: "GET",
       redirect: "follow",
     };
@@ -84,10 +88,6 @@ export const Cards = () => {
                     />
                     <div className="card-body-cards">
                       <h2 className="card-title fw-bold">{element.name}</h2>
-                      <p className="card-text">Gender: {character.gender}</p>
-                      <p className="card-text">
-                        Hair Color: {character.hair_color}
-                      </p>
                       <Link to={`/character/${element.uid}`}>
                         <button type="button" className="btn-1">
                           Learn more
@@ -149,27 +149,39 @@ export const Cards = () => {
                     />
                     <div
                       className="card-body-cards text-wrap"
-                      style={{ height: "180px" }}
+                      style={{ height: "100px" }}
                     >
                       <h3 className="card-title fw-bold">{element.name}</h3>
-                      <p className="card-text">
-                        Population: {element.population}
-                      </p>
-                      <p className="card-text">Terrain: {element.terrain}</p>
                       <Link to={`/planet/${element.uid}`}>
                         <button type="button" className="btn-1">
                           Learn more
                         </button>
                       </Link>
-                      <button
-                        type="button"
-                        onClick={() =>
-                          handleAddFavoritos(element.uid, element.name)
-                        }
-                        className="btn-2 "
-                      >
-                        <i className="fas fa-heart"></i>
+                      {store.characters.some(
+                        (character) =>
+                          character.uid === element.uid &&
+                          character.name === element.name
+                      ) ? (
+                        <button
+                          type="button"
+                          onClick={() =>
+                            handleAddFavoritos(element.uid, element.name)
+                          }
+                          className="btn-2"
+                        >
+                          <i className="fa-solid fa-heart text-danger"></i>
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() =>
+                            handleAddFavoritos(element.uid, element.name)
+                          }
+                          className="btn-2"
+                        >
+                          <i className="fa-regular fa-heart"></i>
                       </button>
+                      )}
                     </div>
                   </div>
                 </>
@@ -201,25 +213,39 @@ export const Cards = () => {
                     />
                     <div
                       className="card-body-cards text-wrap"
-                      style={{ height: "180px" }}
+                      style={{ height: "100px" }}
                     >
                       <h3 className="card-title fw-bold">{element.name}</h3>
-                      <p className="card-text">Model: {element.model}</p>
-                      <p className="card-text">Length: {element.length}</p>
                       <Link to={`/vehicles/${element.uid}`}>
                         <button type="button" className="btn-1">
                           Learn more
                         </button>
                       </Link>
-                      <button
-                        type="button"
-                        onClick={() =>
-                          handleAddFavoritos(element.uid, element.name)
-                        }
-                        className="btn-2 "
-                      >
-                        <i className="fas fa-heart"></i>
+                      {store.characters.some(
+                        (character) =>
+                          character.uid === element.uid &&
+                          character.name === element.name
+                      ) ? (
+                        <button
+                          type="button"
+                          onClick={() =>
+                            handleAddFavoritos(element.uid, element.name)
+                          }
+                          className="btn-2"
+                        >
+                          <i className="fa-solid fa-heart text-danger"></i>
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() =>
+                            handleAddFavoritos(element.uid, element.name)
+                          }
+                          className="btn-2"
+                        >
+                          <i className="fa-regular fa-heart"></i>
                       </button>
+                      )}
                     </div>
                   </div>
                 </>

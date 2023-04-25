@@ -60,7 +60,7 @@ export const PlanetDetails = () => {
           </div>
           <div className="h4 mb-4 p-2 text-danger border-bottom border-danger mt-5"></div>
 
-          <div className="container mt-5 text-danger text-center">
+          <div className="container mt-3 text-danger text-center">
             <div className="row g-0">
               <div className="col-md-2">
                 <strong>Name</strong>

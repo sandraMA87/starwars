@@ -63,10 +63,12 @@ body {
   }
 
   .btn-2 i:hover {
-    color: #e92525; /* cambiar el color del corazón a rosa cuando se pasa el cursor sobre él */
+    color: #e92525;
+                     /* cambiar el color del corazón a rosa cuando se pasa el cursor sobre él */
   }
 
   .footer-container {
     background-color: black;
-    padding: 0;
+    margin-bottom: 0;
+    margin-top: 70px;
   }

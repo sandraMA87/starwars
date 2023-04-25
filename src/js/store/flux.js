@@ -23,6 +23,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         );
         setStore({ characters: oldCharacter });
       },
+      
 
       
     },
